@@ -2,10 +2,11 @@
 
 A simple hack to make the tool cartconv in vice extracte the banks of a .crt file. Those can be edited and glued back together with e.g. "cat" in unix style OS's.
 
-Original can be found here: https://sourceforge.net/p/vice-emu/code/HEAD/tree/branches/cpx-gtk3ui/vice/src/tools/cartconv/. Just build it with standard gcc/c compiler. Copy it to a location that in your path (/usr/local/bin in my case).
+Original can be found here: https://sourceforge.net/p/vice-emu/code/HEAD/tree/branches/cpx-gtk3ui/vice/src/tools/cartconv/. Just build it with standard gcc/c compiler. Copy it to a location that is in your path (/usr/local/bin in my case).
 
-Use 'cartconv -f FILENAME.crt' and the tool will create the chunks in the same directory where you called the command.
+Use 'cartconv -f FILENAME.crt' and the tool will create the chunks in the same directory where you called the command. 
 
+The resulting chunks will consists of the header (0x10 bytes) plus the payload of the bank, usually 0x2000 bytes or 0x400 bytes. The modification has been tested with Easyföash and GMOD/2 .crt files so far, they might *not* work for other cartridge files.
 
 Example:
 ```
@@ -36,9 +37,9 @@ test % ls -ll
 cat all the files in ascending order and you will get a working CRT file again.
 
 Example:
-
+```
 cat 000_0000_0030_CRT_header 000_8000_9fff ... 03c_8000_9fff > thecrtfile.crt
-
+```
 This way you can edit/modify the CRT, and if you follow the CRTs logic (like easyflash3) you can modify the chunks.
 
 I use Kickassembler to create/add banks into an Easyflash cartridge based on this. 

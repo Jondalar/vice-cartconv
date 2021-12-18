@@ -43,3 +43,7 @@ cat 000_0000_0030_CRT_header 000_8000_9fff ... 03c_8000_9fff > thecrtfile.crt
 This way you can edit/modify the CRT, and if you follow the CRTs logic (like easyflash3) you can modify the chunks.
 
 I use Kickassembler to create/add banks into an Easyflash cartridge based on this. 
+
+===
+
+As this is based on vice, the license is like vice GPL2 (https://vice-emu.sourceforge.io/COPYING)

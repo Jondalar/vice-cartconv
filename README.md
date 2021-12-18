@@ -8,7 +8,7 @@ Use 'cartconv -f FILENAME.crt' and the tool will create the chunks in the same d
 
 
 Example:
-
+```
 cartconv -f ../anewgame.crt
 CRT Version: 1.0
 Name: EasyFlash
@@ -21,9 +21,10 @@ $000040 CHIP FLASH #000 $8000 $2000 $2010
 $002050 CHIP FLASH #000 $a000 $2000 $2010
 ...
 $0a4560 CHIP FLASH #060 $8000 $2000 $2010
-
+```
 will lead to:
 
+```
 test % ls -ll
 
 -rw-r--r--  1 alex  staff    64 18 Dez 13:04 000_0000_0040_CRT_header
@@ -31,7 +32,7 @@ test % ls -ll
 -rw-r--r--  1 alex  staff  8208 18 Dez 13:04 000_a000_bfff
 ...
 -rw-r--r--  1 alex  staff  8208 18 Dez 13:04 03c_8000_9fff
-
+```
 cat all the files in ascending order and you will get a working CRT file again.
 
 Example:
